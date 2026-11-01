@@ -1,6 +1,13 @@
-from collections import Counter
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
-       count = Counter(nums)
-       return max(count, key=count.get)
-
+    def majorityElement(self, a: list[int]) -> int:
+        n = len(a)
+        hm = {}
+        for i in a:
+            if i in hm:
+                hm[i] += 1
+            else:
+                hm[i] = 1
+        for i in hm:
+            if hm[i]>n//2:
+                return i
+        
