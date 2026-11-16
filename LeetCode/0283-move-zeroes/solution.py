@@ -1,12 +1,14 @@
-from typing import List
-
+# Time Complexity: O(n)
+# Space Complexity: O(1)
 class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
-        lastNonZeroFoundAt = 0
+    def moveZeroes(self, nums: list[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        p1 = 0
         for i in range(len(nums)):
-            if nums[i] != 0:
-                nums[lastNonZeroFoundAt] = nums[i]
-                lastNonZeroFoundAt += 1
-        for i in range(lastNonZeroFoundAt, len(nums)):
-            nums[i] = 0
-
+            if nums[i]!=0:
+                if i!=p1:
+                    nums[p1],nums[i] = nums[i], nums[p1]
+                p1+=1
+        
