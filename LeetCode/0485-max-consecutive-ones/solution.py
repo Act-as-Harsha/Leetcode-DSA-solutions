@@ -1,3 +1,5 @@
+# Time complexity: O(n)
+# space complexity: O(1)
 class Solution:
     def findMaxConsecutiveOnes(self, a: list[int]) -> int:
         max_length = 0
