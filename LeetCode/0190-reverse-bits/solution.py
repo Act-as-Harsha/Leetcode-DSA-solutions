@@ -1,11 +1,12 @@
+# Time Complexity: O(32) = O(1)
+# Space Complexity: O(1)
 class Solution:
     def reverseBits(self, n: int) -> int:
-        reverse = 0
-        for _ in range(32):
-            last_bit = n & 1
-            reverse = reverse << 1
-            reverse |= last_bit
-            n = n>>1
-        return reverse
-
-        
+        ans = ""
+        for i in range(31, -1, -1):
+            if (n&(1<<i)):
+                ans+='1'
+            else:
+                ans+='0'
+        ans = ans[::-1]
+        return int(ans, 2)
